@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import SessionLength from './SessionLength';
-import BreakLength from './BreakLength';
-import Timer from './Timer';
+import SessionLength from './components/SessionLength';
+import BreakLength from './components/BreakLength';
+import Timer from './components/Timer';
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -70,7 +69,7 @@ class App extends React.Component {
        this.setState({
             workTime: this.state.breakTime ? this.state.workTime : !this.state.workTime,
        })
-       const timer = setInterval(()=>{
+      var timerFunction = () => {
          if(this.state.workTime && this.state.timeLeft > 0) {
            this.setState({
                 timeLeft: this.state.timeLeft-1,
@@ -86,7 +85,8 @@ class App extends React.Component {
        } else if(this.state.workTime==false) {
             clearInterval(timer);
        }
-       },1000);
+       };
+      const timer = setInterval(timerFunction,1000);
     }
 
     breakTimer(){
@@ -94,8 +94,7 @@ class App extends React.Component {
            breakTime: true,
            breakLeft: !this.state.breakTime ? this.state.breakLength*60 : this.state.breakLeft
       })
-
-      const breakTime = setInterval(()=>{
+      var breakTimerFunction = () => {
         if(this.state.breakTime && this.state.timeLeft > 0) {
           this.setState({
                timeLeft: this.state.breakLeft-1,
@@ -111,8 +110,8 @@ class App extends React.Component {
       } else {
           clearInterval(breakTime);
           }
-      }
-        ,1000)
+      };
+      const breakTime = setInterval(breakTimerFunction,1000);
     }
 
     pauseBreakTime(){
@@ -133,8 +132,10 @@ class App extends React.Component {
   <div>
     <BreakLength length={this.state.breakLength} handleLength={this.handleBreak}/>
     <SessionLength length={this.state.sessionLength} handleLength={this.handleSession}/>
-    <Timer timeLeft={this.state.timeLeft} handleReset={this.handleReset} handleTimer={this.handleTimer}  converter={this.converter} breakTime={this.state.breakTime} pauseBreakTime={this.pauseBreakTime} breakLeft={this.state.breakLeft}/>
-   </div>
+    <Timer timeLeft={this.state.timeLeft} handleReset={this.handleReset} handleTimer={this.handleTimer}
+     converter={this.converter} breakTime={this.state.breakTime} pauseBreakTime={this.pauseBreakTime}
+     breakLeft={this.state.breakLeft} workTime={this.state.workTime}/>
+  </div>
   )
 }
 }
