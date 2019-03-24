@@ -3,15 +3,20 @@ import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import PauseRoundedIcon from '@material-ui/icons/PauseRounded';
 import Fab from '@material-ui/core/Fab';
 
+const styles = {
+  button: {
+    marginRigth: '0.5em'
+  }
+}
 
 const PlayPauseButton = (props) => {
   if(props.workTime || props.breakTime) {
   return (
-    <PauseButton onClick={props.breakTime ? props.pauseBreakTime : props.handleTimer} />
+    <PauseButton style={styles.button} onClick={props.breakTime ? props.pauseBreakTime : props.handleTimer} />
   )
   } else {
     return (
-    <PlayButton onClick={props.breakTime ? props.pauseBreakTime : props.handleTimer}/>
+    <PlayButton style={styles.button} onClick={props.breakTime ? props.pauseBreakTime : props.handleTimer}/>
 )
   }
 }

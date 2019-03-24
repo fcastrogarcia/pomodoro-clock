@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import SessionLength from './components/SessionLength';
-import BreakLength from './components/BreakLength';
+import LengthCard from './components/LengthCard';
 import Timer from './components/Timer';
+import Label from './components/Label';
+import styles from './AppStyles';
 
 class App extends Component {
   constructor(props) {
@@ -130,11 +131,27 @@ class App extends Component {
   render() {
   return(
   <div>
-    <BreakLength length={this.state.breakLength} handleLength={this.handleBreak}/>
-    <SessionLength length={this.state.sessionLength} handleLength={this.handleSession}/>
-    <Timer timeLeft={this.state.timeLeft} handleReset={this.handleReset} handleTimer={this.handleTimer}
-     converter={this.converter} breakTime={this.state.breakTime} pauseBreakTime={this.pauseBreakTime}
-     breakLeft={this.state.breakLeft} workTime={this.state.workTime}/>
+    <div style={styles.upperContainer}>
+      <div style={styles.lengthCardContainer}>
+      <Label innerText='Break Length' labelId='break-label'/>
+      <LengthCard length={this.state.breakLength} handleLength={this.handleBreak} display='Break Length'
+        decrementId='break-decrement' decrementValue='break-decrement' incrementId='break-increment'
+        incrementValue='break-increment' labelId='break-label' lengthId="break-length"
+        innerLabelText='Break Length'/>
+      </div>
+      <div style={styles.lengthCardContainer}>
+      <Label innerText='Session Length' labelId='session-label'/>
+      <LengthCard display='Session Length' labelId='session-label' length={this.state.sessionLength}
+        handleLength={this.handleSession} decrementId='session-decrement' decrementValue='session-decrement'
+        incrementId='session-increment' incrementValue='session-increment' lengthId='session-length'
+        innerLabelText='Session Length'/>
+      </div>
+    </div>
+    <div>
+      <Timer timeLeft={this.state.timeLeft} handleReset={this.handleReset} handleTimer={this.handleTimer}
+      converter={this.converter} breakTime={this.state.breakTime} pauseBreakTime={this.pauseBreakTime}
+      breakLeft={this.state.breakLeft} workTime={this.state.workTime}/>
+    </div>
   </div>
   )
 }

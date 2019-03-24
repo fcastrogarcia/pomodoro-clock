@@ -9,20 +9,16 @@ const styles = {
   }
 }
 
-class Timer extends Component {
-  render() {
-    return(
+const Timer = (props) => (
     <div style={styles.container}>
-      <TimeCard breakLeft={this.props.breakLeft} converter={this.props.converter}
-      breakTime={this.props.breakTime} workTime={this.props.workTime}
-      handleTimer={this.props.handleTimer} pauseBreakTime={this.props.pauseBreakTime}
-      handleReset={this.props.handleReset}/>
+      <TimeCard breakLeft={props.breakLeft} converter={props.converter}
+      breakTime={props.breakTime} workTime={props.workTime}
+      handleTimer={props.handleTimer} pauseBreakTime={props.pauseBreakTime}
+      handleReset={props.handleReset}/>
       <div id="time-handler">
         <audio id="beep" src="https://goo.gl/65cBl1" preload="auto"></audio>
       </div>
-    </div>
+    </div>//eliminar time-handler div
     )
-  }
-}
 
 export default Timer;
