@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import './App.css';
-import LengthCard from './components/LengthCard';
+import React, { Component, Fragment } from 'react';
+import BreakLength from './components/BreakLength';
 import Timer from './components/Timer';
 import Label from './components/Label';
 import styles from './AppStyles';
+import Header from './components/Header';
+import SessionLength from './components/SessionLength';
+
 
 class App extends Component {
   constructor(props) {
@@ -25,29 +27,29 @@ class App extends Component {
     this.pauseBreakTime = this.pauseBreakTime.bind(this)
   }
 
-    handleBreak(e) {
+    handleBreak = (value) => () => {
       this.setState({
-               breakLength: this.state.breakLength === 1 && e.target.value==='break-decrement' ? this.state.breakLength :
-                            e.target.value==='break-decrement'? this.state.breakLength - 1 :
-                            this.state.breakLength === 60 && e.target.value==='break-increment' ? this.state.breakLength :
+               breakLength: this.state.breakLength === 1 && value==='break-decrement' ? this.state.breakLength :
+                            value==='break-decrement'? this.state.breakLength - 1 :
+                            this.state.breakLength === 60 && value==='break-increment' ? this.state.breakLength :
                             this.state.breakLength + 1
       })
       }
-    handleSession(e){
-      if(this.state.sessionLength === 1 && e.target.value==='session-decrement') {
+    handleSession = (value) => () => {
+      if(this.state.sessionLength === 1 && value==='session-decrement') {
           this.setState({
                sessionLength: this.state.sessionLength
           })
-    } else if(e.target.value==='session-decrement') {
+    } else if(value==='session-decrement') {
           this.setState({
                sessionLength:  this.state.sessionLength - 1,
                timeLeft: this.state.workTime ? this.state.timeLeft : this.state.timeLeft - 60
           })
-    } else if(this.state.sessionLength === 60 && e.target.value==='session-increment') {
+    } else if(this.state.sessionLength === 60 && value==='session-increment') {
           this.setState({
                sessionLength: this.state.sessionLength
           })
-    } else {
+    } else if (value==='session-increment'){
           this.setState({
                sessionLength:  this.state.sessionLength + 1,
                timeLeft: this.state.workTime ? this.state.timeLeft : this.state.timeLeft + 60
@@ -130,29 +132,30 @@ class App extends Component {
   }
   render() {
   return(
-  <div>
-    <div style={styles.upperContainer}>
-      <div style={styles.lengthCardContainer}>
-      <Label innerText='Break Length' labelId='break-label'/>
-      <LengthCard length={this.state.breakLength} handleLength={this.handleBreak} display='Break Length'
-        decrementId='break-decrement' decrementValue='break-decrement' incrementId='break-increment'
-        incrementValue='break-increment' labelId='break-label' lengthId="break-length"
-        innerLabelText='Break Length'/>
-      </div>
-      <div style={styles.lengthCardContainer}>
-      <Label innerText='Session Length' labelId='session-label'/>
-      <LengthCard display='Session Length' labelId='session-label' length={this.state.sessionLength}
-        handleLength={this.handleSession} decrementId='session-decrement' decrementValue='session-decrement'
-        incrementId='session-increment' incrementValue='session-increment' lengthId='session-length'
-        innerLabelText='Session Length'/>
-      </div>
+  <Fragment>
+    <Header />
+    <div style={styles.main}>
+        <div style={styles.upperContainer}>
+          <div style={styles.lengthCardContainer}>
+            <Label innerText='Break Length' labelId='break-label'/>
+            <BreakLength length={this.state.breakLength} handleBreak={this.handleBreak}
+              decrementValue='break-decrement' incrementValue='break-increment'
+            />
+          </div>
+          <div style={styles.lengthCardContainer}>
+            <Label innerText='Session Length' labelId='session-label'/>
+            <SessionLength length={this.state.sessionLength} handleSession={this.handleSession}
+            decrementValue='session-decrement' incrementValue='session-increment'
+          />
+          </div>
+        </div>
+     <div>
+        <Timer timeLeft={this.state.timeLeft} handleReset={this.handleReset} handleTimer={this.handleTimer}
+        converter={this.converter} breakTime={this.state.breakTime} pauseBreakTime={this.pauseBreakTime}
+        breakLeft={this.state.breakLeft} workTime={this.state.workTime}/>
+     </div>
     </div>
-    <div>
-      <Timer timeLeft={this.state.timeLeft} handleReset={this.handleReset} handleTimer={this.handleTimer}
-      converter={this.converter} breakTime={this.state.breakTime} pauseBreakTime={this.pauseBreakTime}
-      breakLeft={this.state.breakLeft} workTime={this.state.workTime}/>
-    </div>
-  </div>
+  </Fragment>
   )
 }
 }

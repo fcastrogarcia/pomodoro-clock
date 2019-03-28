@@ -1,7 +1,7 @@
 import React from 'react';
 import PlayArrowRoundedIcon from '@material-ui/icons/PlayArrowRounded';
 import PauseRoundedIcon from '@material-ui/icons/PauseRounded';
-import Fab from '@material-ui/core/Fab';
+import {Fab, IconButton} from '@material-ui/core/';
 
 const styles = {
   button: {
@@ -21,11 +21,11 @@ const PlayPauseButton = (props) => {
   }
 }
 const PauseButton = (props) => (
-    <Fab color="action" id="start_stop" onClick={props.onClick}><PauseRoundedIcon /></Fab>
+    <IconButton color="action" id="start_stop" onClick={props.onClick}><PauseRoundedIcon style={{fontSize: '2em'}}/></IconButton>
   );
 
 const PlayButton = (props) => (
-      <Fab color="action" id="start_stop" onClick={props.onClick}><PlayArrowRoundedIcon /></Fab>
+      <IconButton color="action" id="start_stop" onClick={props.onClick}><PlayArrowRoundedIcon style={{fontSize: '2em'}} /></IconButton>
     );
 
 

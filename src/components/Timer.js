@@ -14,7 +14,7 @@ const Timer = (props) => (
       <TimeCard breakLeft={props.breakLeft} converter={props.converter}
       breakTime={props.breakTime} workTime={props.workTime}
       handleTimer={props.handleTimer} pauseBreakTime={props.pauseBreakTime}
-      handleReset={props.handleReset}/>
+      handleReset={props.handleReset} timeLeft={props.timeLeft}/>
       <div id="time-handler">
         <audio id="beep" src="https://goo.gl/65cBl1" preload="auto"></audio>
       </div>

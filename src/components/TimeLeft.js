@@ -7,11 +7,22 @@ const styles = {
     fontSize: '2.8em',
     width: '100%',
     textAlign: 'center',
+  },
+  littleTime: {
+    color: 'red'
   }
 }
 
-const TimeLeft = (props) => (
-  <Typography id="time-left" style={styles.time}>{props.converter()}</Typography>
-)
 
+const TimeLeft = (props) => {
+  let stylesMerger = () => (
+   Object.assign({}, styles.time, styles.littleTime)
+ )
+  let timeStyling = () => (
+    props.timeLeft < 60 ? stylesMerger() : styles.time)
+
+  return(
+  <Typography id="time-left" style={timeStyling()}>{props.converter()}</Typography>
+)
+}
 export default TimeLeft;

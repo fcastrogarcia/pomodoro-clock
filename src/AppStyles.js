@@ -1,11 +1,17 @@
 import React from 'react';
 
 const styles = {
+  main: {
+    margin: '4em',
+  },
   upperContainer: {
-    textAlign: 'center'
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    alignItems: 'center',
+    flexWrap: 'wrap'
   },
   lengthCardContainer: {
-    display: 'inline-block',
     margin: '0 2em 2em 2em',
   }
 }
