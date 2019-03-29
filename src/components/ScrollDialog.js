@@ -21,7 +21,7 @@ class ScrollDialog extends React.Component {
 
   render() {
     return (
-      <div style={{position: 'fixed'}}>
+      <div id='scroll-dialog' style={{position: 'fixed', bottom: 0}}>
         <IconButton onClick={this.handleClickOpen('paper')}><HelpRoundedIcon fontSize='large'/></IconButton>
         <Dialog
           open={this.state.open}

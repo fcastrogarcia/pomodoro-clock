@@ -6,8 +6,6 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     flexDirection: 'column',
-    height: '100vh',
-    alignContent: 'center',
   },
   upperContainer: {
     display: 'flex',
@@ -21,6 +19,7 @@ const styles = {
   },
   lengthCardContainer: {
     margin: '0 2em 2em 2em',
+    backgroundColor: ''
   }
 }
 

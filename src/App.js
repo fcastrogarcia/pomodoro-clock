@@ -139,14 +139,12 @@ class App extends Component {
           <div style={styles.lengthCardContainer}>
             <Label innerText='Break Length' labelId='break-label'/>
             <BreakLength length={this.state.breakLength} handleBreak={this.handleBreak}
-              decrementValue='break-decrement' incrementValue='break-increment'
-            />
+              decrementValue='break-decrement' incrementValue='break-increment'/>
           </div>
           <div style={styles.lengthCardContainer}>
             <Label innerText='Session Length' labelId='session-label'/>
             <SessionLength length={this.state.sessionLength} handleSession={this.handleSession}
-            decrementValue='session-decrement' incrementValue='session-increment'
-          />
+            decrementValue='session-decrement' incrementValue='session-increment'/>
           </div>
         </div>
      <div>
@@ -155,10 +153,8 @@ class App extends Component {
         breakLeft={this.state.breakLeft} workTime={this.state.workTime}/>
      </div>
      <ScrollDialog />
-
     </div>
   </Fragment>
-
   )
 }
 }

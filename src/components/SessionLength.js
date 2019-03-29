@@ -5,13 +5,11 @@ import RemoveRoundedIcon from '@material-ui/icons/RemoveRounded';
 
 const styles = {
 lengthCard: {
-  display: 'inline-block',
   margin: '0 2em 2em 2em',
   textAlign: 'center',
   padding: '1em'
 },
 display: {
-  display: 'inline-block',
   margin: '1em',
   fontSize: '1.5em',
   label: {

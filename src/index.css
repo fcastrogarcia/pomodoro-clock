@@ -13,3 +13,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#main {
+  height: 100vh
+}
+#scroll-dialog {
+  margin: 1em
+}
+@media all and (max-width: 750px) {
+  #main {
+    height: auto;
+    margin: 3.5em 0 3.5em 0;
+  }
+  #scroll-dialog {
+    margin: .2em;
+  }
+}

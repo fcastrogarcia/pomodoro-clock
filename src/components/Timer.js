@@ -7,7 +7,7 @@ const styles = {
     textAlign: 'center',
     display: 'inline-block',
     width: '100%',
-    height: 'auto'
+    height: ''
   }
 }
 
