@@ -23,7 +23,7 @@ display: {
 
 const Display = (props) => (
   <CardContent>
-    <Typography variant='h4'>{props.length}</Typography>
+    <Typography variant='h4' style={{color: '#616161'}}>{props.length}</Typography>
     <Typography variant='subtitle1' style={styles.display.label}>minutes</Typography>
   </CardContent>
 )

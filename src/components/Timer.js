@@ -3,9 +3,11 @@ import TimeCard from './TimeCard';
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center'
+    backgroundColor: '',
+    textAlign: 'center',
+    display: 'inline-block',
+    width: '100%',
+    height: 'auto'
   }
 }
 

@@ -25,7 +25,7 @@ const TimeCard = (props) => (
     <Label innerText={props.breakLeft > 0 ? 'Break' : 'Session'} labelId='timer-label'/>
     <Card style={styles.card}>
       <CardContent>
-        <TimeLeft converter={props.converter} timeLeft={props.timeLeft} />
+        <TimeLeft converter={props.converter} timeLeft={props.timeLeft}/>
       </CardContent>
       <CardActions style={styles.cardActions}>
           <PlayPauseButton breakTime={props.breakTime} workTime={props.workTime}

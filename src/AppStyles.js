@@ -1,15 +1,23 @@
 import React from 'react';
 
+
 const styles = {
   main: {
-    margin: '4em',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    height: '100vh',
+    alignContent: 'center',
   },
   upperContainer: {
     display: 'flex',
     justifyContent: 'center',
     width: '100%',
     alignItems: 'center',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    height: 'auto',
+    backgroundColor: '',
+    marginTop: '2em'
   },
   lengthCardContainer: {
     margin: '0 2em 2em 2em',

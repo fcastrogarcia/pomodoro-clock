@@ -5,7 +5,7 @@ import Label from './components/Label';
 import styles from './AppStyles';
 import Header from './components/Header';
 import SessionLength from './components/SessionLength';
-
+import ScrollDialog from './components/ScrollDialog';
 
 class App extends Component {
   constructor(props) {
@@ -97,7 +97,7 @@ class App extends Component {
            breakTime: true,
            breakLeft: !this.state.breakTime ? this.state.breakLength*60 : this.state.breakLeft
       })
-      var breakTimerFunction = () => {
+      let breakTimerFunction = () => {
         if(this.state.breakTime && this.state.timeLeft > 0) {
           this.setState({
                timeLeft: this.state.breakLeft-1,
@@ -134,7 +134,7 @@ class App extends Component {
   return(
   <Fragment>
     <Header />
-    <div style={styles.main}>
+    <div id="main" style={styles.main}>
         <div style={styles.upperContainer}>
           <div style={styles.lengthCardContainer}>
             <Label innerText='Break Length' labelId='break-label'/>
@@ -154,8 +154,11 @@ class App extends Component {
         converter={this.converter} breakTime={this.state.breakTime} pauseBreakTime={this.pauseBreakTime}
         breakLeft={this.state.breakLeft} workTime={this.state.workTime}/>
      </div>
+     <ScrollDialog />
+
     </div>
   </Fragment>
+
   )
 }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Typography } from '@material-ui/core';
-
+import TimerRoundedIcon from '@material-ui/icons/TimerRounded';
 
 const styles = {
   root: {
@@ -17,11 +17,12 @@ function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" className={classes.AppBar}>
+      <AppBar position="fixed" className={classes.AppBar}>
         <Toolbar style={{justifyContent: 'center'}}>
           <Typography variant="h6" color="inherit">
             Pomodoro Clock
           </Typography>
+          <TimerRoundedIcon  style={{marginLeft: '.2em'}}/>
         </Toolbar>
       </AppBar>
     </div>

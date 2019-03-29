@@ -7,9 +7,10 @@ const styles = {
     fontSize: '2.8em',
     width: '100%',
     textAlign: 'center',
+    color: '#424242'
   },
   littleTime: {
-    color: 'red'
+    color: '#f44336'
   }
 }
 
